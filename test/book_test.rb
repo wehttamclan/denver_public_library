@@ -2,7 +2,6 @@ require './test/test_helper'
 require './lib/book'
 
 class BookTest < Minitest::Test
-
   def test_book_has_author_title_and_publication_date
     book = Book.new({
       author_first_name: "Harper",
@@ -15,5 +14,4 @@ class BookTest < Minitest::Test
     assert_equal "To Kill a Mockingbird", book.title
     assert_equal "July 11, 1960", book.publication_date
   end
-
 end

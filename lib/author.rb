@@ -16,5 +16,6 @@ class Author
     }
     book = Book.new(data)
     @books << book
+    book
   end
 end

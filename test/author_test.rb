@@ -1,9 +1,7 @@
 require './test/test_helper'
 require './lib/author'
-require './lib/book'
 
 class AuthorTest < Minitest::Test
-
   def setup
     @charlotte_bronte = Author.new({
       first_name: "Charlotte",
