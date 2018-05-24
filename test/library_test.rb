@@ -45,4 +45,25 @@ class LibraryTest < Minitest::Test
     assert_equal "Bronte", @dpl.card_catalogue.first.author_last_name
     assert_equal "Lee", @dpl.card_catalogue.last.author_last_name
   end
+
+  def test_find_by_author
+    @dpl.add_to_collection(@jane_eyre)
+    @dpl.add_to_collection(@mockingbird)
+    @dpl.add_to_collection(@villette)
+
+    expected = @charlotte_bronte.books.first.title
+    assert  @dpl.find_by_author("Charlotte Bronte").keys.include?(expected)
+
+    expected = @charlotte_bronte.books.last.title
+    assert  @dpl.find_by_author("Charlotte Bronte").keys.include?(expected)
+  end
+
+  def test_find_by_publication_date
+    @dpl.add_to_collection(@jane_eyre)
+    @dpl.add_to_collection(@mockingbird)
+    @dpl.add_to_collection(@villette)
+
+    expected = @mockingbird.title
+    assert  @dpl.find_by_publication_date("1960").keys.include?(expected)
+  end
 end
