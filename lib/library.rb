@@ -3,6 +3,7 @@ class Library
 
   def initialize
     @books = []
+    # @card_catalogue = card_catalogue
   end
 
   def add_to_collection(book)
@@ -11,5 +12,9 @@ class Library
 
   def include?(book_title)
     @books.any? { |book| book.title == book_title }
+  end
+
+  def card_catalogue
+    @books.sort_by { |book| book.author_last_name }
   end
 end
